@@ -13,21 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class AuthenticationController {
-   /* private final AuthenticationService authenticationService;
-
-    @Autowired
-    public AuthenticationController(AuthenticationService loginService) {
-        this.authenticationService = loginService;
-    }
-
-    @PostMapping("/login")
-    public ResponseEntity<String> loginUser(@RequestBody AuthenticationRequest loginRequest) {
-        if (authenticationService.authenticateUser(loginRequest)) {
-            return ResponseEntity.ok("Login successful");
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
-        }
-    }*/
 
     private final JwtTokUtil jwtTokUtil;
     private final JwtUserDetailService userDetailsService;
