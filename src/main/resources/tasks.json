@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "task1",
+    "description": "desc",
+    "status": "PENDING",
+    "creatorName": "InesHakobyan",
+    "userIds": [
+      1,
+      2
+    ],
+    "completed": false
+  },
+  {
+    "id": 2,
+    "name": "task2",
+    "description": "this is your second task",
+    "status": "PENDING",
+    "creatorName": "InesHakobyan",
+    "userIds": [
+      1,
+      3,
+      2
+    ],
+    "completed": false
+  }
+]

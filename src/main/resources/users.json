@@ -1,0 +1,49 @@
+[
+  {
+    "id": 1,
+    "email": "poghos@gmail.com",
+    "firstName": "Marat",
+    "lastName": "Poghosyan",
+    "password": "$2a$10$JbjqtpYyPMcrNaClTXA7Q.vvc6vqyD8IeeTEUrvQ9ge0WedFYgsRi",
+    "photo": null,
+    "role": {
+      "id": 1,
+      "role": "USER"
+    },
+    "taskIds": [
+      1,
+      2
+    ]
+  },
+  {
+    "id": 2,
+    "email": "ines@gmail.com",
+    "firstName": "Ines",
+    "lastName": "Hakobyan",
+    "password": "$2a$10$zjgQi1TSPnGjFZO2mC65P.LWggBYfNpf478b3Fhou.MVUZ799uzz2",
+    "photo": null,
+    "role": {
+      "id": 1,
+      "role": "USER"
+    },
+    "taskIds": [
+      2
+    ]
+  },
+  {
+    "id": 3,
+    "email": "marat@gmail.com",
+    "firstName": "Marat",
+    "lastName": "Margaryan",
+    "password": "$2a$10$fS5cu6D3UIF/BYvt6.yXIuWbgS10MM3x6j.FEGxWLSdoLLI6/3x5C",
+    "photo": null,
+    "role": {
+      "id": 1,
+      "role": "USER"
+    },
+    "taskIds": [
+      1,
+      2
+    ]
+  }
+]

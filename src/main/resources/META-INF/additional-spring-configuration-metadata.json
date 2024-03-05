@@ -1,0 +1,19 @@
+{
+  "properties": [
+    {
+      "name": "role.json.path",
+      "type": "java.lang.String",
+      "description": "Description for role.json.path."
+    },
+    {
+      "name": "users.json.path",
+      "type": "java.lang.String",
+      "description": "Description for users.json.path."
+    },
+
+    {
+      "name": "tasks.json.path",
+      "type": "java.lang.String",
+      "description": "Description for tasks.json.path."
+    }
+  ] }
