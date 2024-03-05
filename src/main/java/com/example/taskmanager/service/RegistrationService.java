@@ -20,9 +20,8 @@ public class RegistrationService {
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
     private final RoleRepositoryImplementation roleRepository;
-    private static long ID = 1;
 
-    // Constructor injection
+
     public RegistrationService(UserService userService, PasswordEncoder passwordEncoder, RoleRepositoryImplementation repositoryImplementation, RoleRepositoryImplementation roleRepository) {
         this.userService = userService;
         this.passwordEncoder = passwordEncoder;
@@ -30,7 +29,7 @@ public class RegistrationService {
     }
 
     public ResponseEntity<String> registerUser(RegisterRequest registerRequest) {
-        // Check if user already exists
+
         ResponseEntity<String> passwordCheckResult = isPasswordStrong(registerRequest.getPassword());
         if (userService.getUserByEmail(registerRequest.getEmail()) != null) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Email is already in use");
@@ -48,7 +47,7 @@ public class RegistrationService {
 
         Long nextUserId = userService.getHighestUserId() + 1;
 
-        // Register the user
+
         User user = new User();
         user.setId(nextUserId);
         Role role = roleRepository.findByName(Roles.USER);

@@ -49,7 +49,6 @@ public class UserRepositoryImplementation implements UserRepository {
         for (int i = 0; i < users.size(); i++) {
             User existingUser = users.get(i);
             if (existingUser.getId().equals(user.getId())) {
-                // Update user details
                 existingUser.setEmail(user.getEmail());
                 existingUser.setFirstName(user.getFirstName());
                 existingUser.setLastName(user.getLastName());
@@ -73,18 +72,18 @@ public class UserRepositoryImplementation implements UserRepository {
 
     @Override
     public List<Long> getTaskIds(String email) {
-        User user = findByEmail(email); // Assuming findByEmail is a method to find a user by email
+        User user = findByEmail(email);
         if (user != null) {
-            return user.getTaskIds(); // Assuming getTaskIds() returns a list of task IDs for the user
+            return user.getTaskIds();
         } else {
-            return Collections.emptyList(); // Or handle the case where the user is not found
+            return Collections.emptyList();
         }
     }
 
     @Override
     public List<User> findByTaskId(Long taskId) {
         List<User> usersWithTask = new ArrayList<>();
-        for (User user : loadUsersFromFile()) { // Assuming users is a list of all users
+        for (User user : loadUsersFromFile()) {
             if (user.getTaskIds().contains(taskId)) {
                 usersWithTask.add(user);
             }

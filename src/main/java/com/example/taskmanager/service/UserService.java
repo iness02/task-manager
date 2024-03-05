@@ -30,7 +30,7 @@ public class UserService {
 
     public long getHighestUserId() {
         long highestId = 0;
-        List<User> users = getAllUsers(); // Assuming userService has a method to retrieve all users
+        List<User> users = getAllUsers();
         for (User user : users) {
             if (user.getId() > highestId) {
                 highestId = user.getId();

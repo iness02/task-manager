@@ -22,7 +22,6 @@ import java.util.stream.Collectors;
 public class TaskService {
     private final TaskRepositoryImplementation taskRepository;
     private final UserRepositoryImplementation userRepositoryImplementation;
-    private static long ID = 0;
 
     @Autowired
     public TaskService(TaskRepositoryImplementation taskRepository, UserRepositoryImplementation userRepositoryImplementation) {
@@ -47,6 +46,7 @@ public class TaskService {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body("User with username " + username + "does not exist");
         }
+
         //the user who crates a task cannot create them with the same name
         List<Task> usersTasks = taskRepository.findTaskByUser(user1);
         Optional<Task> existingTask = usersTasks.stream()
@@ -54,7 +54,6 @@ public class TaskService {
         if (existingTask.isPresent()) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("You already have task with that name");
         }
-        // Set default status and completion status
         Task task1 = new Task();
         Long nextTaskId = getHighestTaskId() + 1;
         task1.setId(nextTaskId);
@@ -80,7 +79,7 @@ public class TaskService {
             if (optionalUser.isPresent()) {
                 User user = optionalUser.get();
                 user.addTaskId(nextTaskId);
-                userRepositoryImplementation.update(user); // Update the user in the repository
+                userRepositoryImplementation.update(user);
             } else {
                 throw new UsernameNotFoundException("User with ID " + userId + " not found");
             }
@@ -92,7 +91,7 @@ public class TaskService {
 
     public long getHighestTaskId() {
         long highestId = 0;
-        List<Task> tasks = taskRepository.findAll(); // Assuming userService has a method to retrieve all users
+        List<Task> tasks = taskRepository.findAll();
         for (Task task1 : tasks) {
             if (task1.getId() > highestId) {
                 highestId = task1.getId();

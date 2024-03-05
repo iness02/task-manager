@@ -76,7 +76,6 @@ public class TaskRepositoryImplementation implements TaskRepository {
         for (int i = 0; i < tasks.size(); i++) {
             Task existingTask = tasks.get(i);
             if (existingTask.getId().equals(task.getId())) {
-                // Update task details
                 existingTask.setName(task.getName());
                 existingTask.setDescription(task.getDescription());
                 existingTask.setStatus(task.getStatus());
