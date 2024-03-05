@@ -6,7 +6,6 @@ import com.example.taskmanager.model.User;
 import com.example.taskmanager.repository.TaskRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
@@ -17,9 +16,8 @@ import java.util.stream.Collectors;
 
 @Repository
 public class TaskRepositoryImplementation implements TaskRepository {
-    @Value("${tasks.json.path}")
-    private String tasksJsonPath;
-    private final File jsonFile = new File(tasksJsonPath);
+    private String FILE_PATH = "C:\\Users\\User\\Downloads\\task-manager\\task-manager\\src\\main\\resources\\tasks.json";
+    private final File jsonFile = new File(FILE_PATH);
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override

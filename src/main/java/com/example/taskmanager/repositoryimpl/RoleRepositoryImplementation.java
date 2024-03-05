@@ -5,7 +5,6 @@ import com.example.taskmanager.model.Roles;
 import com.example.taskmanager.repository.RoleRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
@@ -15,9 +14,8 @@ import java.util.List;
 
 @Repository
 public class RoleRepositoryImplementation implements RoleRepository {
-    @Value("${role.json.path}")
-    private String roleJsonPath;
-    private final File jsonFile = new File(roleJsonPath);
+    private final String FILE_PATH = "C:\\Users\\User\\Downloads\\task-manager\\task-manager\\src\\main\\resources\\role.json";
+    private final File jsonFile = new File(FILE_PATH);
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
